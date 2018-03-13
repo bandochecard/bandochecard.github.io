@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src='cardMaker.js'></script>
+</head>
+<body>
+  <div id="cardContainer"></div>
+  <form id="cardMakingForm">
+    <div>
+      <label>
+        카드 제목
+        <input type="text" name="title" />
+      </label>
+    </div>
+    <div>
+      <label>
+        종족/효과
+        <input type="text" name="subtitle" />
+      </label>
+    </div>
+    <div>
+      <label>화염<input type="radio" name="type" value="0"></label>
+      <label>어둠<input type="radio" name="type" value="1"></label>
+      <label>물<input type="radio" name="type" value="2"></label>
+      <label>빛<input type="radio" name="type" value="3"></label>
+      <label>땅<input type="radio" name="type" value="4"></label>
+    </div>
+    <div>
+      <label>
+        설명
+        <textarea type="text" name="description"></textarea>
+      </label>
+    </div>
+    <div>
+      <label>
+        공격력
+        <input type="text" name="atk">
+      </label>
+      <label>
+        방어력
+        <input type="text" name="def">
+      </label>
+    </div>
+    <div>
+      <button type="submit">생성</button>
+    </div>
+  </form>
+  <script>
+    (function () {
+        function fillForm() {
+          ['title', 'subtitle', 'description', 'atk', 'def'].forEach(function (v) {
+            document.querySelector('#cardMakingForm *[name=' + v+']').value = cardMaker[v];
+          });
+          var arr = document.querySelectorAll('#cardMakingForm input[name=type]');
+          arr[cardMaker.type].checked = true;
+        }
+
+        var cardMaker = new Card(document.querySelector('#cardContainer'));
+        cardMaker.render();
+        fillForm();
+        document.querySelector('#cardMakingForm').addEventListener('submit', function (e) {
+          e.preventDefault();
+          ['title', 'subtitle', 'description', 'atk', 'def'].forEach(function (v) {
+             cardMaker[v] = document.querySelector('#cardMakingForm *[name='+v+']').value;
+          });
+          cardMaker.type = document.querySelector('#cardMakingForm input[name=type]:checked').value;
+          cardMaker.render();
+        });
+      })();
+    </script>
+  </body>
+</html>
