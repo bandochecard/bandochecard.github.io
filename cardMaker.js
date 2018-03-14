@@ -20,6 +20,7 @@ function hash(v){
     var h = 0, len=v.length;
     for(var i=0;i<len;i++){
 	h = 65599 * h + v.charCodeAt(i);
+	h %= 2147483647;
     }
     return Math.abs(h ^ (h>>16));
 }
