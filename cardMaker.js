@@ -18,12 +18,10 @@ var defaultValues = {
 
 function hash(v){
     var h = 0, len=v.length;
-    var key = 0xedb88320;
     for(var i=0;i<len;i++){
-		key = (key<<1) | (key>>(32-1));
-		h = (key*h+v.charCodeAt(i));
+	h = 65599 * hash + v.charCodeAt(i);
     }
-    return Math.abs(h);
+    return Math.abs(h ^ (h>>16));
 }
 
 function getImage(arg, cb) {
