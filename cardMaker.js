@@ -1,20 +1,24 @@
 var images = {
   'layout': 'images/card_layout.png',
   'icons': 'images/card_icons.png',
-  'bandoche': 'images/bandoche.jpg'
+  'bandoche': ['images/bandoche.jpg']
 }
 
-function getImage(uri, cb) {
-    var img = new Image();
-    img.src = uri;
-    img.addEventListener('load', function () {
-      cb(img);
-    });
+function getImage(arg, cb) {
+    if( typeof arg === 'string') arg = [arg];
+    for(var i=0;i<arg.length;i++){
+      var uri = arg[i];
+      var img = new Image();
+      img.src = uri;
+      img.addEventListener('load', function () {
+        cb(img);
+      });
+    }
 }
 
 function Card(container) {
   var prs = [];
-  var num = 3;
+  var num = 2 + images.bandoche.length;
   this.loaded = false;
   this.canvas = document.createElement('canvas');
   this.canvas.width = 420;
@@ -24,6 +28,7 @@ function Card(container) {
   this.title = '단결정 규소';
   this.subtitle = '광물사족/효과';
   this.description = '이 카드를 패에 가지고 있으면 기분이 이상하게 좋아집니다.';
+  this.bandoche = [];
   var that = this;
   getImage(images.layout, function (img) { 
     that.layout = img;
@@ -36,7 +41,7 @@ function Card(container) {
     if (num <= 0) that.loaded = true;
   });
   getImage(images.bandoche, function (img) { 
-    that.bandoche = img;
+    that.bandoche.push(img);
     num--;
     if (num <= 0) that.loaded = true;
   });
@@ -49,7 +54,7 @@ Card.prototype = {
       return;
     }
     var ctx = this.canvas.getContext('2d');
-    ctx.drawImage(this.bandoche, 40, 110, 340, 340);
+    ctx.drawImage(this.bandoche[ (Math.random() * images.bandoche.length)|0 ], 40, 110, 340, 340);
     ctx.drawImage(this.layout, 0, 0);
 
     // draw title 40,35
