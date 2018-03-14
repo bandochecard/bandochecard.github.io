@@ -12,7 +12,7 @@ var defaultValues = {
   en:{
     title:'Sillycon',
     subtitle:'Stone/Effects',
-    description:'No body knows why but it makes you feel better since you have got this card in your deck'
+    description:'Nobody knows why but it makes you feel better since you have got this card in your deck.'
   }
 };
 
@@ -43,7 +43,7 @@ function getImage(arg, cb) {
 function Card(container) {
   var lang = document.querySelector('html').getAttribute('lang') || 'ko';
   var defaults = defaultValues[lang] || defaultValues['ko'];
-  
+
   var prs = [];
   var num = 2 + images.bandoche.length;
   this.loaded = false;
@@ -58,17 +58,17 @@ function Card(container) {
   }
   this.bandoche = [];
   var that = this;
-  getImage(images.layout, function (img) { 
+  getImage(images.layout, function (img) {
     that.layout = img;
     num--;
     if (num <= 0) that.loaded = true;
   });
-  getImage(images.icons, function (img) { 
+  getImage(images.icons, function (img) {
     that.icons = img;
     num--;
     if (num <= 0) that.loaded = true;
   });
-  getImage(images.bandoche, function (img) { 
+  getImage(images.bandoche, function (img) {
     that.bandoche.push(img);
     num--;
     if (num <= 0) that.loaded = true;
