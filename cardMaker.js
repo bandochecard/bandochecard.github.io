@@ -8,11 +8,13 @@ function getImage(arg, cb) {
     if( typeof arg === 'string') arg = [arg];
     for(var i=0;i<arg.length;i++){
       var uri = arg[i];
+      (function(){
       var img = new Image();
       img.src = uri;
       img.addEventListener('load', function () {
         cb(img);
       });
+      })();
     }
 }
 
