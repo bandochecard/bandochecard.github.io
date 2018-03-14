@@ -10,14 +10,9 @@ var defaultValues = {
     description:'이 카드를 패에 가지고 있으면 기분이 이상하게 좋아집니다.'
   },
   en:{
-    title:'Silicon',
+    title:'Sillycon',
     subtitle:'Stone/Effects',
     description:'Nobody knows why but it makes you feel better since you have got this card in your deck.'
-  }
-  jp:{
-    title:'シリコーン',
-    subtitle:'鉱物/効果',
-    description:'このカードを手に持っていると気分が変によくなります。'
   }
 };
 
