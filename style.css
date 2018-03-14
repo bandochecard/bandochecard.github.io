@@ -68,3 +68,13 @@ body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left:
 .card-form button { display: block; padding: 14px; width: 100%; background-color: #79341b; color: #fff; border: none; cursor: pointer; border-radius: 6px; border-bottom: 2px solid #5d220d; }
 .card-form button:active { position: relative; top: 2px; border: none; }
 
+@media (max-width: 1130px) {
+  html, body { height: auto; }
+  body { background-size: auto 100%; }
+  body:after { display: none; }
+  .card { position: static; margin: 0; padding: 0; width: auto; background: none; transform: none; }
+  .card > * { float: none; }
+  .card-preview { margin: 0 auto; max-width: 450px; padding: 15px; box-shadow: none; }
+  .card-preview canvas { width: 100%; }
+  .card-form { width: auto; padding: 15px; background: url(images/bg_roll-paper.png) no-repeat 50% -100px; }
+}
