@@ -1,7 +1,7 @@
 var images = {
   'layout': 'images/card_layout.png',
   'icons': 'images/card_icons.png',
-  'bandoche': ['images/bandoche.jpg']
+  'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg']
 }
 
 function getImage(arg, cb) {
