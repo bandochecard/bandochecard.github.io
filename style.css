@@ -1,0 +1,54 @@
+
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 700;
+  src: url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff');
+}
+
+* {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: 'Godo', sans-serif; 
+  font-size: 120%; 
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+input, textarea, button { font-family: 'Godo', sans-serif; font-size: 80%; }
+
+body { min-height: 100%; background: url(http://i.imgur.com/g25TJb0.jpg) no-repeat 0 0; background-size: cover; }
+body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8) }
+
+.card { position: absolute; top: 50%; left: 50%; display: table; padding: 50px 170px; z-index: 1; background: url(http://i.imgur.com/1nptx2v.jpg) no-repeat 0 0; background-size: auto 100%; color: #fff; transform: translate(-50%, -50%) rotate(-1deg); box-shadow: 0 20px 100px rgba(199,88,44,.4) }
+.card > * { display: table-cell; vertical-align: top; }
+.card-preview { position: relative; display: inline-block; line-height: 1; border: 10px solid #cdb531; border-radius: 20px; overflow: hidden; }
+.card-preview canvas { vertical-align: top; }
+.card-form { padding-left: 30px; }
+.card-form > div { margin: 15px 0; }
+.card-form > div:first-child { margin-top: 0; }
+.card-form > div:last-child { margin-bottom: 0; }
+.card-form label { cursor: pointer; }
+.card-form input[type=text],
+.card-form input[type=number],
+.card-form textarea { margin: 5px 0; padding: 10px; width: 100%; }
+.card-form input[type=radio] { width: 20px; height: 20px; vertical-align: middle; }
+.card-form textarea { height: 140px; }
+.card-form button { display: block; padding: 10px; width: 100%; }
