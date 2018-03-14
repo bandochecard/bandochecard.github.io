@@ -22,14 +22,27 @@
 }
 
 html {
-  font-family: 'Godo', sans-serif; 
-  font-size: 120%; 
+  font-family: 'Godo', sans-serif;
+  font-size: 120%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 html, body {
   height: 100%;
+}
+
+a {
+    margin-right: 10px;
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: yellow;
 }
 
 input, textarea, button { font-family: 'Godo', sans-serif; font-size: 80%; }
@@ -54,3 +67,4 @@ body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left:
 .card-form textarea { height: 140px; }
 .card-form button { display: block; padding: 14px; width: 100%; background-color: #79341b; color: #fff; border: none; cursor: pointer; border-radius: 6px; border-bottom: 2px solid #5d220d; }
 .card-form button:active { position: relative; top: 2px; border: none; }
+
