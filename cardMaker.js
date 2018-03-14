@@ -13,7 +13,7 @@ var defaultValues = {
     title:'Silicon',
     subtitle:'Stone/Effects',
     description:'Nobody knows why but it makes you feel better since you have got this card in your deck.'
-  }
+  },
   jp:{
     title:'シリコーン',
     subtitle:'鉱物/効果',
