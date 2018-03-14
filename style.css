@@ -3,14 +3,14 @@
   font-family: 'Godo';
   font-style: normal;
   font-weight: 400;
-  src: url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Godo';
   font-style: normal;
   font-weight: 700;
-  src: url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('http://cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff');
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff');
 }
 
 * {
@@ -47,7 +47,7 @@ a:active {
 
 input, textarea, button { font-family: 'Godo', sans-serif; font-size: 80%; }
 
-body { min-height: 100%; background: url(http://i.imgur.com/g25TJb0.jpg) no-repeat 0 0; background-size: cover; }
+body { min-height: 100%; background: url(//i.imgur.com/g25TJb0.jpg) no-repeat 0 0; background-size: cover; }
 body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0, 0, 0, .8) }
 
 .card { position: absolute; top: 50%; left: 50%; padding: 80px 150px; width: 1130px; z-index: 1; background: url(images/bg_roll-paper.png) no-repeat 0 0; background-size: 100% auto; color: #fff; transform: translate(-50%, -50%) rotate(-1deg); }
