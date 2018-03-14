@@ -22,14 +22,27 @@
 }
 
 html {
-  font-family: 'Godo', sans-serif; 
-  font-size: 120%; 
+  font-family: 'Godo', sans-serif;
+  font-size: 120%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 html, body {
   height: 100%;
+}
+
+a {
+    margin-right: 10px;
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: yellow;
 }
 
 input, textarea, button { font-family: 'Godo', sans-serif; font-size: 80%; }
