@@ -54,7 +54,7 @@ Card.prototype = {
       return;
     }
     var ctx = this.canvas.getContext('2d');
-    ctx.drawImage(this.bandoche[ (Math.random() * images.bandoche.length)|0 ], 40, 110, 340, 340);
+    ctx.drawImage(this.bandoche[ Math.floor(Math.random() * this.bandoche.length) ], 40, 110, 340, 340);
     ctx.drawImage(this.layout, 0, 0);
 
     // draw title 40,35
