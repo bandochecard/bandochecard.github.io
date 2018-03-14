@@ -19,7 +19,7 @@ var defaultValues = {
 function hash(v){
     var h = 0, len=v.length;
     for(var i=0;i<len;i++){
-	h = 65599 * hash + v.charCodeAt(i);
+	h = 65599 * h + v.charCodeAt(i);
     }
     return Math.abs(h ^ (h>>16));
 }
