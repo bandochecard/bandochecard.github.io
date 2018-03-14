@@ -2,6 +2,28 @@ var images = {
   'layout': 'images/card_layout.png',
   'icons': 'images/card_icons.png',
   'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg']
+};
+var defaultValues = {
+  ko:{
+    title:'단결정 규소',
+    subtitle:'광물사족/효과',
+    description:'이 카드를 패에 가지고 있으면 기분이 이상하게 좋아집니다.'
+  },
+  en:{
+    title:'Sillycon',
+    subtitle:'Stone/Effects',
+    description:'No body knows why but it makes you feel better since you have got this card in your deck'
+  }
+};
+
+function hash(v){
+    var h = 0, len=v.length;
+    var key = 0xedb88320;
+    for(var i=0;i<len;i++){
+		key = (key<<1) | (key>>(32-1));
+		h = (key*h+v.charCodeAt(i));
+    }
+    return Math.abs(h);
 }
 
 function getImage(arg, cb) {
@@ -19,6 +41,9 @@ function getImage(arg, cb) {
 }
 
 function Card(container) {
+  var lang = document.querySelector('html').getAttribute('lang') || 'ko';
+  var defaults = defaultValues[lang] || defaultValues['ko'];
+  
   var prs = [];
   var num = 2 + images.bandoche.length;
   this.loaded = false;
@@ -27,9 +52,10 @@ function Card(container) {
   this.canvas.height = 609;
   this.container = container;
   this.container.appendChild(this.canvas);
-  this.title = '단결정 규소';
-  this.subtitle = '광물사족/효과';
-  this.description = '이 카드를 패에 가지고 있으면 기분이 이상하게 좋아집니다.';
+  for(var i in defaults){
+    if( !defaults.hasOwnProperty(i) ) continue;
+    this[i] = defaults[i];
+  }
   this.bandoche = [];
   var that = this;
   getImage(images.layout, function (img) { 
@@ -55,8 +81,9 @@ Card.prototype = {
       setTimeout(this.render.bind(this), 500);
       return;
     }
+    var hashed = hash(this.title + this.description + this.subtitle);
     var ctx = this.canvas.getContext('2d');
-    ctx.drawImage(this.bandoche[ Math.floor(Math.random() * this.bandoche.length) ], 40, 110, 340, 340);
+    ctx.drawImage(this.bandoche[ hashed % this.bandoche.length ], 40, 110, 340, 340);
     ctx.drawImage(this.layout, 0, 0);
 
     // draw title 40,35
@@ -68,7 +95,7 @@ Card.prototype = {
     ctx.restore();
 
     // draw type icon 340 40
-    var type = Math.floor(Math.random()*6);
+    var type = hashed % 6;
     ctx.save();
     ctx.drawImage(this.icons, type * 192 + 30, 41, 192, 192, 340, 25, 50, 50);
     ctx.restore();
@@ -97,7 +124,7 @@ Card.prototype = {
     ctx.restore();
 
     // draw atk 260 555, def 343, 555
-    var atk = Math.floor(Math.random() * 9999), def = Math.floor(Math.random() * 9999);
+    var atk = hashed % 10000, def = hashed % 10000;
     ctx.save();
     ctx.textBaseline = 'top';
     ctx.fillStyle = 'black';
