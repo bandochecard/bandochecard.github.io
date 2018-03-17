@@ -1,7 +1,8 @@
 var images = {
   'layout': 'images/card_layout.png',
   'icons': 'images/card_icons.png',
-  'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg']
+  'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg'
+,'images/bandoche4.jpg','images/bandoche5.jpg','images/bandoche6.jpg','images/bandoche7.jpg','images/bandoche8.jpg']
 };
 var defaultValues = {
   ko:{
@@ -13,7 +14,7 @@ var defaultValues = {
     title:'Silicon',
     subtitle:'Stone/Effects',
     description:'Nobody knows why but it makes you feel better since you have got this card in your deck.'
-  }
+  },
   jp:{
     title:'シリコーン',
     subtitle:'鉱物/効果',
@@ -23,12 +24,11 @@ var defaultValues = {
 
 function hash(v){
     var h = 0, len=v.length;
-    var key = 0xedb88320;
     for(var i=0;i<len;i++){
-		key = (key<<1) | (key>>(32-1));
-		h = (key*h+v.charCodeAt(i));
+	h = 65599 * h + v.charCodeAt(i);
+	h %= 2147483647;
     }
-    return Math.abs(h);
+    return Math.abs(h ^ (h>>16));
 }
 
 function getImage(arg, cb) {
