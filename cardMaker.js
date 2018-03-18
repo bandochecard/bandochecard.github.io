@@ -1,7 +1,8 @@
 var images = {
   'layout': 'images/card_layout.png',
   'icons': 'images/card_icons.png',
-  'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg']
+  'bandoche': ['images/bandoche.jpg','images/bandoche1.jpg','images/bandoche2.jpg','images/bandoche3.jpg'
+,'images/bandoche4.jpg','images/bandoche5.jpg','images/bandoche6.jpg','images/bandoche7.jpg','images/bandoche8.jpg']
 };
 var defaultValues = {
   ko:{
