@@ -68,6 +68,8 @@ body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left:
 .card-form button { display: block; padding: 14px; width: 100%; background-color: #79341b; color: #fff; border: none; cursor: pointer; border-radius: 6px; border-bottom: 2px solid #5d220d; }
 .card-form button:active { position: relative; top: 2px; border: none; }
 
+.bgm { visibility: hidden; }
+
 @media (max-width: 1130px) {
   html, body { height: auto; }
   body { background-size: auto 100%; }
