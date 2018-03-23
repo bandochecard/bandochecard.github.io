@@ -55,7 +55,7 @@ body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left:
 .card > * { float: left; }
 .card-preview { position: relative; margin-top: -80px; line-height: 1; border-radius: 10px; box-shadow: 0 0 20px rgba(3,15,6,.8);overflow: hidden; }
 .card-preview canvas { vertical-align: top; }
-.card-form { padding-left: 30px; width: 380px; }
+.card-form { position: relative; padding-left: 30px; width: 380px; }
 .card-form > div { margin: 15px 0; }
 .card-form > div:first-child { margin-top: 0; }
 .card-form > div:last-child { margin-bottom: 0; }
@@ -65,8 +65,13 @@ body:after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left:
 .card-form textarea { margin: 5px 0; padding: 10px; width: 100%; }
 .card-form input[type=radio] { width: 20px; height: 20px; vertical-align: middle; }
 .card-form textarea { height: 140px; }
-.card-form button { display: block; padding: 14px; width: 100%; background-color: #79341b; color: #fff; border: none; cursor: pointer; border-radius: 6px; border-bottom: 2px solid #5d220d; }
-.card-form button:active { position: relative; top: 2px; border: none; }
+.card-form button[type=submit] { display: block; padding: 14px; width: 100%; background-color: #79341b; color: #fff; border: none; cursor: pointer; border-radius: 6px; border-bottom: 2px solid #5d220d; }
+.card-form button[type=submit]:active { position: relative; top: 2px; border: none; }
+.card-form .volume-control { position: absolute; top: -20px; right: 0; }
+
+.volume-control { overflow: hidden; }
+.volume-control_btn { width: 35px; height: 35px; background: transparent url(images/icon_volume.png) no-repeat 0 0; background-size: 100% auto; text-indent: -1000em; border: 0; border-radius: 50%; cursor: pointer; }
+.volume-control_btn.is-mute { background-image: url(images/icon_volume-mute.png); }
 
 .bgm { visibility: hidden; }
 

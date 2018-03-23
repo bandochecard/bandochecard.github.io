@@ -72,30 +72,69 @@
       <div>
         <button type="submit">생성</button>
       </div>
+      <div class="volume-control">
+        <button class="volume-control_btn" data-mute>소리 끄고/켜기</button>
+      </div>
     </form>
-  </div>
-  <div class="bgm">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/H4fKfz5rcx8?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
   <script>
     (function () {
-        function fillForm() {
-          ['title', 'subtitle', 'description'].forEach(function (v) {
-            document.querySelector('#cardMakingForm *[name=' + v+']').value = cardMaker[v];
-          });
-        }
-
-        var cardMaker = new Card(document.querySelector('#cardContainer'));
-        cardMaker.render();
-        fillForm();
-        document.querySelector('#cardMakingForm').addEventListener('submit', function (e) {
-          e.preventDefault();
-          ['title', 'subtitle', 'description'].forEach(function (v) {
-             cardMaker[v] = document.querySelector('#cardMakingForm *[name='+v+']').value;
-          });
-          cardMaker.render();
+      function fillForm() {
+        ['title', 'subtitle', 'description'].forEach(function (v) {
+          document.querySelector('#cardMakingForm *[name=' + v+']').value = cardMaker[v];
         });
-      })();
-    </script>
-  </body>
+      }
+      var cardMaker = new Card(document.querySelector('#cardContainer'));
+      cardMaker.render();
+      fillForm();
+      document.querySelector('#cardMakingForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        ['title', 'subtitle', 'description'].forEach(function (v) {
+            cardMaker[v] = document.querySelector('#cardMakingForm *[name='+v+']').value;
+        });
+        cardMaker.render();
+      });
+    })();
+
+    (function mute() {
+      var self = this;
+      var $button = document.querySelector('[data-mute]');
+      self.appendBGM();
+      $button.addEventListener('click', function() {
+        var classes = this.className.split(' ');
+        var i = classes.indexOf('is-mute');
+        (i > 0) ?
+          classes.splice(i, 1) :
+          classes.push('is-mute');
+        this.className = classes.join(' ');
+        self.toggleMute(i > 0 ? true : false);
+      });
+    }.bind({
+      BGM_TEMPLATE: `
+        <iframe
+          class="bgm_player"
+          width="100"
+          height="100"
+          src="https://www.youtube.com/embed/H4fKfz5rcx8?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;autoplay=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      `,
+      appendBGM: function() {
+        var bgm = document.createElement('div');
+        bgm.className = 'bgm';
+        bgm.innerHTML = this.BGM_TEMPLATE;
+        document.body.appendChild(bgm);
+      },
+      removeBGM: function() {
+        var bgm = document.querySelector('.bgm');
+        document.body.removeChild(bgm)
+      },
+      toggleMute: function(isMute) {
+        (isMute) ? this.appendBGM() : this.removeBGM();
+      }
+    })());
+  </script>
+</body>
 </html>
